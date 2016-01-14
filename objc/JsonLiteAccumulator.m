@@ -250,7 +250,7 @@ static void ReleaseKeyValues(JsonLiteAccumulatorState *s) {
 - (void)parser:(JsonLiteParser *)parser foundNumberToken:(JsonLiteNumberToken *)token {
     jsonlite_token_bucket *item = jsonlite_token_pool_get_bucket(pools[PoolNumbers], (jsonlite_token *)token);
     if (item->value == nil) {
-        item->value = [token copyValue];
+        item->value = [token copyDecimal];
     }
     
     CHECK_CAPACITY();
